@@ -1,0 +1,9 @@
+{
+    "br_commit": "78edafe5fdb45874eb7143319fb6e7649ad944c8",
+    "tidb_commit": "689a6b6439ae7835947fcaccf329a3fc303986cb",
+    "tikv_commit": "78d7a854026962669ceb2ee0ac343a5e88faa310",
+    "pd_commit": "30f0b014b7ff3cd1b5f041bf7ce73448dc0d0fe8",
+    "binlog_commit": "a75036cf8933a581cac42c1007bf92c9e5417b90",
+    "release_branch": "release-4.0",
+    "tidb_old_commits": []
+}
