@@ -48,10 +48,10 @@ main() {
     local hash_file_url=$1
     local version=$2
     local platform=$3
+    local py_url=$4
 
     # FIXME: python script url
-    local py_url="http://127.0.0.1:8000/extract.py" 
-
+    
     cd $HOME
     mkdir -p release_version_check
     cd release_version_check
@@ -82,9 +82,9 @@ main() {
     echo "done"
 }
 
-if [[ ! $# -eq 3 ]]; then
-    echo "usage: hash_check.sh <hash_file_url> <version> <platform> "
-    echo "example: hash_check.sh http://127.0.0.1/hash.json v4.0.2 linux-amd64"
+if [[ ! $# -eq 4 ]]; then
+    echo "usage: hash_check.sh <hash_file_url> <version> <platform> <python_script_url>"
+    echo "example: hash_check.sh http://127.0.0.1/hash.json v4.0.2 linux-amd64 http://127.0.0.1/extract.py"
     exit 1
 fi
 
