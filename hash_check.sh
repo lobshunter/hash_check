@@ -47,16 +47,17 @@ main() {
     local hash_file_url=$1
     local version=$2
     local platform=$3
-    
-    mkdir -p release_version_check
-    cd release_version_check
-
-    curl -sL -o hash.json $hash_file_url
 
     local result=""
     local url
+
+    curl -sL -o hash.json $hash_file_url
     hashes=( $(./extract.py hash.json) )
     length=${#hashes[@]}    
+
+    mkdir -p release_version_check
+    cd release_version_check
+
     for ((i=0 ; i<$length; i=$i+2 )); do 
         comp=${hashes[$i]}
         hash_sum=${hashes[$i+1]}
