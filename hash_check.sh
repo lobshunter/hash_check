@@ -75,6 +75,9 @@ main() {
         # echo $hash_sum
         # echo "--------"1
     done
+    
+    cd ..
+    rm -r release_version_check
     echo $result
     echo "done"
 }
