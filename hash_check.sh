@@ -48,7 +48,6 @@ main() {
     local version=$2
     local platform=$3
     
-    cd $HOME
     mkdir -p release_version_check
     cd release_version_check
 
