@@ -26,6 +26,8 @@ check_hash() {
     fi
     
     for bin in ${binpath[@]}; do
+        echo "bin: $bin"
+        ls $bin
         version=`$bin -V`
         if [[ ! $version =~ $hash_sum ]]
         then
