@@ -3,7 +3,7 @@
 set -u
 set -e
 set -o
-# set -x
+set -x
 
 # BASE_URL="https://tiup-mirrors.pingcap.com/pd-v4.0.2-linux-amd64.tar.gz"
 BASE_URL="https://tiup-mirrors.pingcap.com"
