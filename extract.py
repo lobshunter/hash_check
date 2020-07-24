@@ -10,6 +10,18 @@ COMP_MAP = {
     "binlog": ["pump", "drainer"],
     "ticdc": ["cdc"],
     "lightning": ["tidb-lightning"],
+
+    # normal
+    "pd": ["pd"],
+    "tikv": ["tikv"],
+    "tidb": ["tidb"],
+    "br": ["br"],
+    "tiflash": ["tiflash"],
+    "dumpling": ["dumpling"],
+
+    # ignored
+    # "importer": [],
+    # "tools": [],
 }
 
 
@@ -19,9 +31,6 @@ def maybe_expand_comp(comp: str, hash_sum: str) -> []:
         for mapped_comp in COMP_MAP[comp]:
             result.append(mapped_comp)
             result.append(hash_sum)
-    else:
-        result.append(comp)
-        result.append(hash_sum)
 
     return result
 

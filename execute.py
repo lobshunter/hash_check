@@ -33,8 +33,9 @@ def main():
     parser.add_argument("password")
     parser.add_argument("hashfile_url")
     parser.add_argument("version")
+    parser.add_argument("platform")
 
-    # print("example: root 127.0.0.1 abc123 http://127.0.0.1/hash.json v4.0.1")
+    # print("example: root 127.0.0.1 abc123 http://127.0.0.1/hash.json v4.0.1 darwin-amd64")
 
     args = parser.parse_args()
     client = paramiko.SSHClient()
@@ -42,7 +43,7 @@ def main():
     client.connect(hostname=args.host, username=args.username,
                    password=args.password)
 
-    command = CMD(version=args.version, platform="linux-arm64",
+    command = CMD(version=args.version, platform=args.platform,
                   hashfile_url=args.hashfile_url)
 
     print(f"command {command}")

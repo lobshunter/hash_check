@@ -1,9 +1,14 @@
 {
-    "br_commit": "78edafe5fdb45874eb7143319fb6e7649ad944c8",
     "tidb_commit": "689a6b6439ae7835947fcaccf329a3fc303986cb",
     "tikv_commit": "78d7a854026962669ceb2ee0ac343a5e88faa310",
     "pd_commit": "30f0b014b7ff3cd1b5f041bf7ce73448dc0d0fe8",
     "binlog_commit": "a75036cf8933a581cac42c1007bf92c9e5417b90",
+    "lightning_commit": "391db4a233a870fc2044494caa770da791f49734",
+    "tools_commit": "6dd445d83fe05df5515662984d914a8a6523cc05",
+    "importer_commit": "dd1710e583a4af2971ea6ebf726aa0c8106a7c07",
+    "tiflash_commit": "e134030e694906860b3d5b8729092351258e256c",
+    "br_commit": "78edafe5fdb45874eb7143319fb6e7649ad944c8",
+    "ticdc_commit": "b66fffd08bc444fb9c1d3c579a9f27f3f6a2fc3a",
     "release_branch": "release-4.0",
     "tidb_old_commits": []
 }

@@ -25,10 +25,8 @@ check_hash() {
         binpath=`find -type f -executable -exec file -i '{}' \; | grep 'x-executable; charset=binary' | cut -d':' -f1`
     fi
     
-    for bin in ${binpath[@]}; do
-        echo "bin: $bin"
-        ls $bin
-        version=`$bin -V`
+    if [[ $binpath =~ "./cdc" ]]; then
+        version=`./cdc version`
         if [[ ! $version =~ $hash_sum ]]
         then
             echo "$url wrong hash ----------"
@@ -38,7 +36,34 @@ check_hash() {
         then
             echo "$url wrong version -------- "
         fi
-    done
+    
+    elif [[ $binpath =~ "./tiflash" ]]; then
+        version=`./tiflash/flash_cluster_manager/flash_cluster_manager --version`
+        if [[ ! $version =~ $hash_sum ]]
+        then
+            echo "$url wrong hash ----------"
+        fi
+
+        if [[ ! $version =~ $ver ]]
+        then
+            echo "$url wrong version -------- "
+        fi
+
+    else
+        for bin in ${binpath[@]}; do
+            # echo "bin: $bin"
+            version=`$bin -V`
+            if [[ ! $version =~ $hash_sum ]]
+            then
+                echo "$url wrong hash ----------"
+            fi
+
+            if [[ ! $version =~ $ver ]]
+            then
+                echo "$url wrong version -------- "
+            fi
+        done
+    fi
 
     cd ..
     rm -r packdir
