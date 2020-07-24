@@ -15,7 +15,7 @@ check_hash() {
     
     local version
 
-    curl -sL -o pack.tar $url > /dev/null
+    curl -sL -o pack.tar $url
     mkdir -p packdir && tar xzf pack.tar -C packdir
     cd packdir
 
