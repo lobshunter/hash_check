@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -u
-set -e
-set -o
+set -u > /dev/null
+set -e > /dev/null
+set -o > /dev/null
 # set -x
 
 # BASE_URL="https://tiup-mirrors.pingcap.com/pd-v4.0.2-linux-amd64.tar.gz"
@@ -71,7 +71,7 @@ main() {
     
     cd ..
     rm -r release_version_check
-    echo $result
+    # echo $result
 }
 
 if [[ ! $# -eq 3 ]]; then
