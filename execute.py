@@ -9,8 +9,6 @@ TMPDIR = "qa_hash_check"
 
 
 def CMD(version: str, platform: str, hashfile_url: str) -> str:
-    print("version: ", version)
-    print("url:", hashfile_url)
     return f"""
     mkdir {TMPDIR}
     cd {TMPDIR}
