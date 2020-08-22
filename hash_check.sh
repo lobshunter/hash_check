@@ -25,46 +25,19 @@ check_hash() {
     else
         binpath=`find -type f -executable -exec file -i '{}' \; | grep 'x-executable; charset=binary' | cut -d':' -f1`
     fi
-    
-    if [[ $binpath =~ "./cdc" ]]; then
-        version=`./cdc version`
+
+    for bin in ${binpath[@]}; do
+        version=`$bin -V || $bin version || $bin --version`
         if [[ ! $version =~ $hash_sum ]]
         then
             echo "$url $binpath wrong hash ----------"
         fi
-
+        
         if [[ ! $version =~ $ver ]]
         then
             echo "$url $binpath wrong version -------- "
         fi
-    
-    elif [[ $binpath =~ "./tiflash" ]]; then
-        version=`./tiflash/flash_cluster_manager/flash_cluster_manager --version`
-        if [[ ! $version =~ $hash_sum ]]
-        then
-            echo "$url $binpath wrong hash ----------"
-        fi
-
-        if [[ ! $version =~ $ver ]]
-        then
-            echo "$url $binpath wrong version -------- "
-        fi
-
-    else
-        for bin in ${binpath[@]}; do
-            # echo "bin: $bin"
-            version=`$bin -V`
-            if [[ ! $version =~ $hash_sum ]]
-            then
-                echo "$url $binpath wrong hash ----------"
-            fi
-
-            if [[ ! $version =~ $ver ]]
-            then
-                echo "$url $binpath wrong version -------- "
-            fi
-        done
-    fi
+    done
 
     echo "DONE checking $url $binpath"
     cd ..
