@@ -66,7 +66,7 @@ check_hash() {
         done
     fi
 
-    echo "DONE checking $URL $binpath"
+    echo "DONE checking $url $binpath"
     cd ..
     rm -r packdir
 }
