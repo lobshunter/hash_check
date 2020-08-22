@@ -50,8 +50,8 @@ def main():
     out: bytes = stdout.read()
     err: bytes = stderr.read()
 
-    print(out.decode("utf8"))
-    print(err.decode("utf8"))
+    print(f"[OUTPUT]: {out.decode('utf8')}")
+    print(f'[ERROR]: {err.decode("utf8")}')
 
 
 if __name__ == "__main__":

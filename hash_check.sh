@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -u > /dev/null
-set -e > /dev/null
+# set -e > /dev/null
 set -o > /dev/null
 # set -x
 
@@ -66,6 +66,7 @@ check_hash() {
         done
     fi
 
+    echo "DONE checking $URL"
     cd ..
     rm -r packdir
 }
@@ -79,7 +80,7 @@ main() {
     local result=""
     local url
 
-    curl -sL -o hash.json $hash_file_url
+    curl -sL -o hash.json '$hash_file_url'
     hashes=( $(./extract.py hash.json) )
     length=${#hashes[@]}    
 
@@ -97,7 +98,7 @@ main() {
     
     cd ..
     rm -r release_version_check
-    # echo $result
+    echo $result
 }
 
 if [[ ! $# -eq 3 ]]; then
