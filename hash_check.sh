@@ -31,6 +31,8 @@ check_hash() {
         if [[ ! $version =~ $hash_sum ]]
         then
             echo "$url $binpath wrong hash ----------"
+            echo "should have $hash_sum"
+            echo "instead of $version"
         fi
         
         if [[ ! $version =~ $ver ]]
