@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -u > /dev/null
-set -e > /dev/null
+# set -e > /dev/null
 set -o > /dev/null
 # set -x
 
