@@ -6,8 +6,8 @@ set -o > /dev/null
 # set -x
 
 # BASE_URL="https://tiup-mirrors.pingcap.com/pd-v4.0.2-linux-amd64.tar.gz"
-# BASE_URL="https://tiup-mirrors.pingcap.com"
-BASE_URL="https://download.pingcap.org"
+BASE_URL="https://tiup-mirrors.pingcap.com"
+# BASE_URL="https://download.pingcap.org"
 
 check_hash() {
     local url=$1
