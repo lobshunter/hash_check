@@ -30,24 +30,24 @@ check_hash() {
         version=`./cdc version`
         if [[ ! $version =~ $hash_sum ]]
         then
-            echo "$url wrong hash ----------"
+            echo "$url $binpath wrong hash ----------"
         fi
 
         if [[ ! $version =~ $ver ]]
         then
-            echo "$url wrong version -------- "
+            echo "$url $binpath wrong version -------- "
         fi
     
     elif [[ $binpath =~ "./tiflash" ]]; then
         version=`./tiflash/flash_cluster_manager/flash_cluster_manager --version`
         if [[ ! $version =~ $hash_sum ]]
         then
-            echo "$url wrong hash ----------"
+            echo "$url $binpath wrong hash ----------"
         fi
 
         if [[ ! $version =~ $ver ]]
         then
-            echo "$url wrong version -------- "
+            echo "$url $binpath wrong version -------- "
         fi
 
     else
@@ -56,17 +56,17 @@ check_hash() {
             version=`$bin -V`
             if [[ ! $version =~ $hash_sum ]]
             then
-                echo "$url wrong hash ----------"
+                echo "$url $binpath wrong hash ----------"
             fi
 
             if [[ ! $version =~ $ver ]]
             then
-                echo "$url wrong version -------- "
+                echo "$url $binpath wrong version -------- "
             fi
         done
     fi
 
-    echo "DONE checking $URL"
+    echo "DONE checking $URL $binpath"
     cd ..
     rm -r packdir
 }
